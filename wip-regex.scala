@@ -6,12 +6,12 @@ import scala.util.matching.Regex
 
 /**
  * This application cleanses a sample
- * file from Tenable.  Regex is used to group
+ * file from T.  Regex is used to group
  * the valuable fields that can be used for
  * analysis.
  *
- * Author: Justin Mauss
- * Date Last Modified: 5/08/2016
+ * Author: 
+ * Date Last Modified: 
  */
 object test {
   //!!!for local machine run only
@@ -22,8 +22,8 @@ object test {
     val sparkConf = new SparkConf().setAppName("sparking")
     val sc = new SparkContext(sparkConf)
 
-    //val localFile = "C:\\Users\\TKMATD3\\Documents\\Spark_work\\sample\\2015_February_3sample.csv"
-    val localFile = "/home/tkmatd3/demo/2015_February_3sample.csv"
+    //val localFile = "C:\\Users\\localuser\\Documents\\Spark_work\\sample\\2015_February_3sample.csv"
+    val localFile = "/home/localuser/demo/2015_February_3sample.csv"
 
     val pattern = """(?:"[^"]*"|[^,]*)\,""" //standard pattern for each field
     val lastCol = """(?:"[^"]*"|[^,]*)\n""" //pattern for last field in the list
