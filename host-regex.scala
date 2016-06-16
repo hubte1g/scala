@@ -1,7 +1,7 @@
 //groups of interest: bssg, dba, prodcntl, usa
 /*
 See cleansed file:
-W:\IT\Vulnerability Management\PAG\Privileged Access Review Q2 2016\Unix\cleansedUnixHostFile.xlsx
+
 Ran the process for groups: bssg, dba, prodcntl, usa
 Columns in cleansed file:
 Name, OS, Group, Version, ID, and True or False based if ID is in password column.
@@ -15,7 +15,7 @@ Note that if you see 'null' for ID that means that name/OS had no IDs.
 case class Host(Name: String, OS: String, pswd: String, grpName: String, ver: String, IDs: String)
 
 //file to source
-val txt = "Unix_Local_Privileged_Groups.txt"
+val txt = "file.txt"
 
 //method defines regex pattern for file.  File is tab delimited.
 //fileName: pass name of file to run pattern matching and grouping.
@@ -28,7 +28,7 @@ def parseLogFile(fileName: String): Iterator[Host] = {
 }
 
 //set path to get file(s) and map through log file method.
-val groupedRecords = sc.wholeTextFiles("/kohls/eim/lab/ers/host").flatMap{case (_, txt) => parseLogFile(txt)}
+val groupedRecords = sc.wholeTextFiles("/hdfs/host").flatMap{case (_, txt) => parseLogFile(txt)}
 
 //map over the RDD and split out ID column to be an array of IDs.
 val nestedIDs = groupedRecords.collect.map { x =>  (x.Name, x.OS, x.pswd, x.grpName, x.ver, x.IDs.split(",")) }
@@ -43,7 +43,7 @@ def printToFile(f: java.io.File)(op: java.io.PrintWriter => Unit) {
   try { op(p) } finally { p.close() }}
 
 //cleaner printing function
-printToFile(new File("/home/tkmatd3/hostClean_usa.txt"))(p => { 
+printToFile(new File("/home/user/hostClean_usa.txt"))(p => { 
 	var j = 0; 
 	var i = 0;  
 	while ( j < filteredGroup.length) { 
