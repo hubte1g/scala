@@ -1,3 +1,6 @@
+
+/*http://orastack.com/machine-learning-with-apache-spark-scala-and-hive.html
+*/
 import org.apache.spark.SparkConf
 import org.apache.spark.SparkContext
 import org.apache.spark.sql.hive.HiveContext
