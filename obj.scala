@@ -10,7 +10,7 @@ object Timer {
    var count = 0
    
    def currentCount(): Long = {
-      count += 1
+      count -= 1
       count
    }
 } // defined module Timer
