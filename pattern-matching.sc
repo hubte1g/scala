@@ -27,4 +27,22 @@ def bigger(o: Any): Any = {
   }
 } // bigger: (o: Any)Any
 
+// Matching on class members, long way
+
+case class Calculator(brand: String, model: String)
+val hp20b = Calculator("hp", "20b")
+val hp20b = Calculator("hp", "20b")
+// ...
+
+def calcType(calc: Calculator) = calc match {
+  case _ if calc.brand == "hp" && calc.model == "20B" => "financial"
+  case _ if calc.brand == "hp" && calc.model == "48G" => "scientific"
+  case _ if calc.brand == "hp" && calc.model == "30B" => "business"
+  case _ => "unknown"
+}
+
+
+scala> hp20B == hp20b // res33: Boolean = true
+
+
 
