@@ -5,8 +5,9 @@ case class Person(name: String, address: Address)
 
 trait ToJSON {
   def toJSON(level: Int = 0): String
-  val INDENTATION = " "
-  def indentation(level: Int = 0): (String,String) =
+  
+  val INDENTATION = "  "
+  def indentation(level: Int = 0): (String,String) = 
     (INDENTATION * level, INDENTATION * (level+1))
 }
 
@@ -15,18 +16,18 @@ implicit class AddressToJSON(address: Address) extends ToJSON {
     val (outdent, indent) = indentation(level)
     s"""{
       |${indent}"street": "${address.street}",
-      |${indent}"city": "${address.city}"
+      |${indent}"city":   "${address.city}"
       |$outdent}""".stripMargin
     }
   }
   
 implicit class PersonToJSON(person: Person) extends ToJSON {
-  def toJSON(level: INt = 0): Srting= {
+  def toJSON(level: Int = 0): String = {
     val (outdent, indent) = indentation(level)
     s"""{
-      |${indent}"name": "${person.name}",
-      |${indent}"address": $person.address.toJSON(level + 1)}
-      |$outdent""".stripMargin
+      |${indent}"name":   "${person.name}",
+      |${indent}"address": ${person.address.toJSON(level + 1)}
+      |$outdent}""".stripMargin
     }
   }
 
