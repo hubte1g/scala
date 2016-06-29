@@ -20,4 +20,11 @@ raw"123\n$name\n456"
 res3: String = 123\nJoshua Lickteig\n456
 
 
+// Trailing commas, periods, and operators indicate more code on the next line.
+
+def commas(s1: String,
+           s2: String) = Console.
+    println("comma: " + s1 + ", " + s2)
+
+
 
