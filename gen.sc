@@ -26,5 +26,37 @@ def commas(s1: String,
            s2: String) = Console.
     println("comma: " + s1 + ", " + s2)
 
+// if-then
+val x = 7
 
+if ( x > 5 ) {
+     | println( "x = " + x + " is greater than 5")
+     | } else {
+     | println("x = " + x + " is less than 5")
+     | }
+     
+x = 7 is greater than 5
 
+// match
+
+val x = 2; val y = 4
+val result = (x + y) match {
+           case 5 => " this is five"
+           case 6 => " this is six"
+           case 7 => {" this is seven"
+}
+println(result)
+}
+
+// for loop
+for (i <- 1 to 20 by 3 if i % 2 == 0) {  // i mod to (only equal to even)
+           println(i)
+}
+
+// function
+
+def computeSum (x: Int, y: Int) : Int = {
+           println("Input values" + x + "and" + y)
+           return x+y
+           }
+println("Result is" + computeSum(2,4)) // computeSum: (x: Int, y: Int)Int
