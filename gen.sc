@@ -43,8 +43,7 @@ val x = 2; val y = 4
 val result = (x + y) match {
            case 5 => " this is five"
            case 6 => " this is six"
-           case 7 => {" this is seven"
-}
+           case 7 => {" this is seven"}
 println(result)
 }
 
