@@ -4,6 +4,17 @@ of its kind, that is an empty
 set to an empty set and a nonempty
 set to a nonempty set.
 
+Leaving arrays covariant in Java
+Produced a hole in the type system,
+
+Which had to be patched by a run-time
+Check. And you might ask why, and
+
+It has to do with the desire to sort
+an object array for any type. This
+
+Was solved by creating generic types.
+
 def <method>[SUBTYPE <: SomeSubType](set: SUBTYPE): SUBTYPE = ...
 
 
