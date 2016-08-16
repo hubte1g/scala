@@ -15,5 +15,7 @@ It means that SUBTYPE can be instantiated only to types that conform to SomeSubT
 
 General notation:
 
-S <: SomeT means S is a subtype of T
-S >: T means S is a supertype of T, or T is a subtype of S
+S <: SomeT means S is a subtype of T  -- 'upper bound'
+S >: T means S is a supertype of T, or T is a subtype of S -- 'lower bound'
+
+S >: below <: above-- 'mixed bounds'
