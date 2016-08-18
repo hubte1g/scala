@@ -1,5 +1,8 @@
 UPDATE SEABORN / 
 
+There was a quadratic explosion of class-
+Ification and access methods.
+
 To express that a method
 takes a set of its kind to as set
 of its kind, that is an empty
