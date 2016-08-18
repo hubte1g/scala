@@ -1,4 +1,4 @@
-UPDATE SEABORN / 
+UPDATE SEABORN / NONLOCAL KNOWLEDGE OF THE TREE
 
 There was a quadratic explosion of class-
 Ification and access methods.
