@@ -1,4 +1,4 @@
-UPDATE SEABORN / NONLOCAL KNOWLEDGE OF THE TREE
+UPDATE SEABORN / NONLOCAL KNOWLEDGE OF THE TREE / 'ACCIDENTALLY WELL-ROUNDED'
 
 There was a quadratic explosion of class-
 Ification and access methods.
