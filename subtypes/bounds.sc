@@ -5,6 +5,8 @@ This is not an identifier.
 There was a quadratic explosion of class-
 Ification and access methods.
 
+If we get separated, we meet downstream.
+
 To express that a method
 takes a set of its kind to as set
 of its kind, that is an empty
