@@ -1,3 +1,15 @@
+// Median function
+
+def findMedian(vs: Iterable[(Int,Int)]): Int = {
+    def s = vs.unzip._2.toArray.sorted
+    val mode: Int = s.length / 2
+    if (s.length % 2 == 0) {
+      (s(mode) + s(mode - 1)) / 2
+    } else {
+      s(mode)
+    }
+  }
+
 //interpolated strings -- use an Int expression in a Float context (pads with zeroes)
 
 val i = 200
