@@ -1,3 +1,8 @@
+// Indicate state of results
+sealed trait AA
+case class AAdesired(things: List[T]) extends AA
+case class AAnotDesired(things: List[T]) extends AA
+
 //
 sealed abstract class Perhaps[A]
 case class YesItIs[A](value: A) extends Perhaps[A]
