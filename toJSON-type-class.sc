@@ -1,3 +1,7 @@
+// json4s : https://riptutorial.com/scala/example/13543/json-with-json4s
+val bodyJson = parse(body)
+val records = (bodyJson \ "Records").extract[List[JValue]]
+
 // src.main.scala.progscala2.implicits/toJSON-type-class.sc
 
 case class Address(street: String, city: String)
