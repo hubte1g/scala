@@ -1,3 +1,10 @@
+// Example steps
+import play.api.libs.json.Json
+val runStepsJson: String = runSteps.toString
+    .replace("[","{").replace("]","}").replace("'","\"")
+  val runMap: Map[String,Boolean] = (Json.parse(runStepsJson) \ "steps").as[Map[String,Boolean]]
+
+
 // json4s : https://riptutorial.com/scala/example/13543/json-with-json4s
 val bodyJson = parse(body)
 val records = (bodyJson \ "Records").extract[List[JValue]]
