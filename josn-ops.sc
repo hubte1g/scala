@@ -1,4 +1,6 @@
 // Example steps
+//run_steps=['steps':['other':false,'other2':false]]
+
 import play.api.libs.json.Json
 val runStepsJson: String = runSteps.toString
     .replace("[","{").replace("]","}").replace("'","\"")
