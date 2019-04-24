@@ -64,6 +64,11 @@ for (i <- 1 to 20 by 3 if i % 2 == 0) {  // i mod to (only equal to even)
            println(i)
 }
 
+// for loop
+int i; 
+for (i = 0; i < 10; i++) {} 
+int x = i;
+
 // function
 
 def computeSum (x: Int, y: Int) : Int = {
