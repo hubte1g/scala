@@ -69,6 +69,23 @@ int i;
 for (i = 0; i < 10; i++) {} 
 int x = i;
 
+
+val dt_list = between (START_DATE, END_DATE)
+ 
+    val hours = (0 to 23).map { h =>
+      h match {
+        case a if a < 10 => s"0" + a.toString + s"-00-00"
+        case b if b >= 10 => b.toString + s"-00-00"
+        case _ => "NO_VAL"
+      }
+    }
+
+    val pathsDays = for (dt <- dt_list) yield "received_date=" + dt
+
+    val pathsHours = for (dt <- dt_list; h <- hours) yield
+      "received_date=" + dt + "/" + "received_time=" + h
+
+
 // function
 
 def computeSum (x: Int, y: Int) : Int = {
