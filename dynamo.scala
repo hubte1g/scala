@@ -22,3 +22,19 @@ def dynamoDB: AmazonDynamoDB = {
 //  val request = new GetItemRequest().withTableName("table_name").withKey(key)//.withProjectionExpression(retrnCols).withExpressionAttributeNames(identifier_map)
 //  val response = client.getItem(request)
 //  val s = response.getItem()
+
+
+// Builder approach
+
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder
+import com.amazonaws.services.dynamodbv2.document.Table
+import com.amazonaws.services.dynamodbv2.xspec.ExpressionSpecBuilder.S
+import com.amazonaws.services.dynamodbv2.xspec.{ExpressionSpecBuilder, UpdateItemExpressionSpec}
+import com.amazonaws.services.dynamodbv2.document.{DynamoDB, Item}
+
+def dynamoClient(awsProfile: String) = {
+      val dynamoDB = new DynamoDB(AmazonDynamoDBClientBuilder.defaultClient())
+      dynamoDB
+      }
+
+//dynamoClient: (awsProfile: String)com.amazonaws.services.dynamodbv2.document.DynamoDB
