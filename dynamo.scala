@@ -1,4 +1,4 @@
-import com.amazonaws.services.dynamodbv2.document.{DynamoDB, Table, Item, DynamoDB}
+import com.amazonaws.services.dynamodbv2.document.{DynamoDB, Table, Item}
 import com.amazonaws.services.dynamodbv2.model._
 import com.amazonaws.services.dynamodbv2.{AmazonDynamoDB, AmazonDynamoDBClient, AmazonDynamoDBClientBuilder}
 
