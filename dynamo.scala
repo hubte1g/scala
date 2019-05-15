@@ -38,3 +38,13 @@ def dynamoClient(awsProfile: String) = {
       }
 
 //dynamoClient: (awsProfile: String)com.amazonaws.services.dynamodbv2.document.DynamoDB
+
+
+
+// Get table item count
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder
+    import com.amazonaws.services.dynamodbv2.document.DynamoDB
+    val client = AmazonDynamoDBClientBuilder.standard().build()
+
+    val dynamoDB = new DynamoDB(client)
+    val tableDescription = dynamoDB.getTable("table name").describe().getItemCount()
