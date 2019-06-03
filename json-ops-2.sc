@@ -1,3 +1,14 @@
+import play.api.libs.json._
+
+val t_str = """{"a":1, "b":true, "c":"a_string"}"""
+val t_str = """{"a":1, "b":true, "c":"a_string", "d":{"x":0,"y":1}}"""
+
+val t_json: JsValue = Json.parse(t_str)
+(t_json \ "c" ).validate[String].getOrElse("")
+(t_json \ "b" ).validate[Boolean].getOrElse(false)
+
+(t_json \ "d" \ "y")
+
 // Example steps
 //run_steps=['steps':['other':false,'other2':false]]
 
