@@ -48,3 +48,41 @@ import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder
 
     val dynamoDB = new DynamoDB(client)
     val tableDescription = dynamoDB.getTable("table name").describe().getItemCount()
+
+
+// Batch get item
+
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder
+import com.amazonaws.services.dynamodbv2.document.{BatchGetItemOutcome, DynamoDB, TableKeysAndAttributes}
+import com.amazonaws.services.dynamodbv2.model.{AttributeValue, KeysAndAttributes}
+import org.apache.spark.sql.Row
+
+import scala.collection.JavaConverters._
+import scala.collection.JavaConversions._
+
+val client = AmazonDynamoDBClientBuilder.standard.build
+val dynamoDB = new DynamoDB(client)
+
+val tableName = "a_table"
+
+val _columns = List("c1","c2").asJava
+
+val forumTableKeysAndAttributes = new TableKeysAndAttributes(tableName)
+
+val lkpList = Array("hkVal1", "rkVal1", "hkVal2", "rkVal2", "hkVal3", "rkVal3")
+
+forumTableKeysAndAttributes.withHashAndRangeKeys(
+  "hk_id","rk_cd").withAttributeNames(
+  identity_columns).addHashAndRangePrimaryKeys(
+  "hk_id", "rk_cd",
+  lkpList:_*
+)
+
+//val threadTableKeysAndAttributes = new TableKeysAndAttributes("another_table")
+//threadTableKeysAndAttributes.addHashAndRangePrimaryKeys("ForumName", "Subject", "Amazon DynamoDB", "DynamoDB Thread 1", "Amazon DynamoDB", "DynamoDB Thread 2", "Amazon S3", "S3 Thread 1")
+
+val outcome = dynamoDB.batchGetItem(forumTableKeysAndAttributes)
+outcome.getTableItems.keySet
+
+//https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/JavaDocumentAPIItemCRUD.html
+//https://github.com/aws/aws-sdk-java/blob/master/src/samples/AmazonDynamoDBDocumentAPI/quick-start/com/amazonaws/services/dynamodbv2/document/quickstart/H_BatchGetItemTest.java
