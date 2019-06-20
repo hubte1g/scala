@@ -86,3 +86,27 @@ outcome.getTableItems.keySet
 
 //https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/JavaDocumentAPIItemCRUD.html
 //https://github.com/aws/aws-sdk-java/blob/master/src/samples/AmazonDynamoDBDocumentAPI/quick-start/com/amazonaws/services/dynamodbv2/document/quickstart/H_BatchGetItemTest.java
+
+
+
+
+//Relevant for using https://github.com/seratch/AWScala/blob/master/src/main/scala/awscala/dynamodbv2/AttributeValue.scala
+
+import com.amazonaws.services.dynamodbv2.model.AttributeValue
+def toJavaValue(v: Any): AttributeValue = {
+    val value = new AttributeValue
+    v match {
+      case null => null
+      case s: String => value.withS(s)
+      case n: java.lang.Number => value.withN(n.toString)
+      case b: ByteBuffer => value.withB(b)
+      case xs: Seq[_] => xs.headOption match {
+        case Some(s: String) => value.withSS(xs.map(_.asInstanceOf[String]).asJava)
+        case Some(n: java.lang.Number) => value.withSS(xs.map(_.toString).asJava)
+        case Some(s: ByteBuffer) => value.withBS(xs.map(_.asInstanceOf[ByteBuffer]).asJava)
+        case Some(v) => value.withSS(xs.map(_.toString).asJava)
+        case _ => null
+      }
+      case _ => null
+    }
+  }
